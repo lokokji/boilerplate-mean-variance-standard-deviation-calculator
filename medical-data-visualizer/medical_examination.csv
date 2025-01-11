@@ -1,0 +1,24 @@
+import pandas as pd
+import numpy as np
+
+# Membuat data simulasi untuk medical_examination.csv
+data = {
+    'age': np.random.randint(20, 70, 1000),
+    'height': np.random.randint(150, 200, 1000),
+    'weight': np.random.uniform(50, 100, 1000),
+    'gender': np.random.choice([1, 2], 1000),  # 1: Male, 2: Female
+    'ap_hi': np.random.randint(90, 180, 1000),  # Systolic blood pressure
+    'ap_lo': np.random.randint(60, 120, 1000),  # Diastolic blood pressure
+    'cholesterol': np.random.choice([1, 2, 3], 1000),  # 1: normal, 2: above normal, 3: well above normal
+    'gluc': np.random.choice([1, 2, 3], 1000),  # 1: normal, 2: above normal, 3: well above normal
+    'smoke': np.random.choice([0, 1], 1000),  # 0: no, 1: yes
+    'alco': np.random.choice([0, 1], 1000),  # 0: no, 1: yes
+    'active': np.random.choice([0, 1], 1000),  # 0: no, 1: yes
+    'cardio': np.random.choice([0, 1], 1000),  # 0: no, 1: yes (target variable)
+}
+
+# Mengonversi ke DataFrame
+df = pd.DataFrame(data)
+
+# Menyimpan sebagai CSV
+df.to_csv('medical_examination.csv', index=False)
